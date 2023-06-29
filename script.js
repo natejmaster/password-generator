@@ -8,9 +8,12 @@ function generatePassword() {
   let availableChars = " "
   //When prompted for the length of the password, then user chooses a length between 8 characters and 128 characters
   let charLength = window.prompt("How many characters long do you want your password to be? (choose between the range of 8 and 128)")
-  //Still need to add when prompt response is not a number to reject criteria
   if (charLength < 8 || charLength > 128) {
     window.alert("The value you submitted is not within the acceptable range")
+    return generatePassword();
+  }
+  if (isNaN(charLength)) {
+    window.alert("The value you entered is not a number")
     return generatePassword();
   }
   //Runs a function that uses four window.confirm methods to either add or exclude different sets of characters from the library of available characters
