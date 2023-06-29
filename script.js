@@ -5,7 +5,7 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword() {
   //Empty strings for the generated password and library of available characters (these will be populated later in the function)
   let generatedPassword = " "
-  let availableChars = " " 
+  let availableChars = " "
   //When prompted for the length of the password, then user chooses a length between 8 characters and 128 characters
   let charLength = window.prompt("How many characters long do you want your password to be? (choose between the range of 8 and 128)")
   //Still need to add when prompt response is not a number to reject criteria
@@ -14,24 +14,24 @@ function generatePassword() {
     return generatePassword();
   }
   //Runs a function that uses four window.confirm methods to either add or exclude different sets of characters from the library of available characters
-    function includeChars() {
-  //include or exclude lowercase
-    let includeLowercase = window.confirm ("Do you want to include lowercase characters? (choose 'cancel' if you don't)")
+  function includeChars() {
+    //include or exclude lowercase
+    let includeLowercase = window.confirm("Do you want to include lowercase characters? (choose 'cancel' if you don't)")
     if (includeLowercase === true) {
       availableChars += "abcdefghijklmnopqrstuvwxyz";
     }
     //include or exclude uppercase
-    let includeUppercase = window.confirm ("Do you want to include uppercase characters? (choose 'cancel' if you don't)")
+    let includeUppercase = window.confirm("Do you want to include uppercase characters? (choose 'cancel' if you don't)")
     if (includeUppercase === true) {
       availableChars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     }
     //include or exclude numeric
-    let includeNumeric = window.confirm ("Do you want to include numeric characters? (choose 'cancel' if you don't)")
+    let includeNumeric = window.confirm("Do you want to include numeric characters? (choose 'cancel' if you don't)")
     if (includeNumeric === true) {
       availableChars += "0123456789"
     }
     //include or exclude special characters.
-    let includeSpecial = window.confirm ("Do you want to include special characters? (choose 'cancel' if you don't)")
+    let includeSpecial = window.confirm("Do you want to include special characters? (choose 'cancel' if you don't)")
     if (includeSpecial === true) {
       availableChars += "!@#%^&*$()-+=[]:;?><,."
     }
@@ -42,13 +42,13 @@ function generatePassword() {
     }
   }
   includeChars();
-  for (i=0; i < charLength; i++) {
+  for (i = 0; i < charLength; i++) {
     let randomCharacter = availableChars.charAt(Math.floor(Math.random() * availableChars.length));
     generatedPassword += randomCharacter;
   };
 
-// Write password to the #password input
-return generatedPassword
+  // Write password to the #password input
+  return generatedPassword
 };
 function writePassword() {
   var password = generatePassword();
