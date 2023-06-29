@@ -6,4 +6,4 @@ Algorithm Explanation: My function, generatePassword(), begins by declaring two 
 Link to Deployed Site:
 
 Screenshot of Deployed Site with password example included:
-![Screenshot] (./assets/images/screenshot.png)
+![Screenshot](./assets/images/screenshot.png)
