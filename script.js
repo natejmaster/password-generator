@@ -1,8 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-//For reference sake, this line and below is where my code is written.
+//Function that generates the password
 function generatePassword() {
+  //Empty strings for the generated password and library of available characters (these will be populated later in the function)
+  let generatedPassword = " "
   let availableChars = " " 
   //When prompted for the length of the password, then user chooses a length between 8 characters and 128 characters
   let charLength = window.prompt("How many characters long do you want your password to be? (choose between the range of 8 and 128)")
@@ -11,9 +13,7 @@ function generatePassword() {
     window.alert("The value you submitted is not within the acceptable range")
     return generatePassword();
   }
-  //Still need to write the for loop that will make the password the entered length.
-  //Establish an array for possible character variables
-  //When asked for character types to include in the password, then I confirm whether or not to include certain character types */
+  //Runs a function that uses four window.confirm methods to either add or exclude different sets of characters from the library of available characters
     function includeChars() {
   //include or exclude lowercase
     let includeLowercase = window.confirm ("Do you want to include lowercase characters? (choose 'cancel' if you don't)")
@@ -35,19 +35,20 @@ function generatePassword() {
     if (includeSpecial === true) {
       availableChars += "!@#%^&*$()-+=[]:;?><,."
     }
-    //This type prompt should be validated to ensure at least one character type was selected
+    //Validate that the user has selected at least one set of characters
     if (includeLowercase !== true && includeUppercase !== true && includeNumeric !== true && includeSpecial !== true) {
       window.alert("You must include at least one set of characters");
       return includeChars();
     }
   }
   includeChars();
-
- //Password that matches select criteria is generated
-//When password is generated, it is either printed as an alert or on the page
-//This is where my code stops */
+  for (i=0; i < charLength; i++) {
+    let randomCharacter = availableChars.charAt(Math.floor(Math.random() * availableChars.length));
+    generatedPassword += randomCharacter;
+  };
 
 // Write password to the #password input
+return generatedPassword
 };
 function writePassword() {
   var password = generatePassword();
