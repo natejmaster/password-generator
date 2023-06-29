@@ -8,10 +8,12 @@ function generatePassword() {
   let availableChars = " "
   //When prompted for the length of the password, then user chooses a length between 8 characters and 128 characters
   let charLength = window.prompt("How many characters long do you want your password to be? (choose between the range of 8 and 128)")
+  //If they choose a number outside this value, they are alerted and the function restarts
   if (charLength < 8 || charLength > 128) {
     window.alert("The value you submitted is not within the acceptable range")
     return generatePassword();
   }
+  //If they choose a value that is not a number, they are alerted and the function restarts
   if (isNaN(charLength)) {
     window.alert("The value you entered is not a number")
     return generatePassword();
@@ -44,6 +46,7 @@ function generatePassword() {
       return includeChars();
     }
   }
+  //This function chooses which characters from the newly populated availableChars set to use at random.
   includeChars();
   for (i = 0; i < charLength; i++) {
     let randomCharacter = availableChars.charAt(Math.floor(Math.random() * availableChars.length));
